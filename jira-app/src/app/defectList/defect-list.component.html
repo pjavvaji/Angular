@@ -1,0 +1,10 @@
+<div>
+<button (click) = "addDefectPopup()">Add Defect</button>
+<md-list class="defects">
+    <md-list-item *ngFor="let defect of defects" (click) = "onSelect(defect)" [class.selected]="defect===selectedDefect">
+        <span class="badge">{{defect.id}}</span><span class="text">{{defect.title}}</span>
+    </md-list-item>
+</md-list>
+
+<defect-detail [selectedDefect]="selectedDefect"></defect-detail>
+</div>

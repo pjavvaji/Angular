@@ -1,0 +1,27 @@
+<h1 md-dialog-title>Add Defect</h1>
+<div md-dialog-content>    
+    <md-input-container>
+        <input mdInput #title
+                required
+                placeholder="Title"
+                [(ngModel)]="defect.title">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput #description
+                required
+                placeholder="Description"
+                [(ngModel)]="defect.description">
+    </md-input-container>
+    <md-select #category
+            required
+            placeholder="Category"
+            [(ngModel)]="defect.category">
+        <md-option *ngFor="let category of categories" [value]="category.value">
+            {{ category.viewValue }}
+        </md-option>
+    </md-select>
+</div>
+<div md-dialog-actions>
+  <button md-raised-button color="primary" (click)="dialogRef.close(defect)">OK</button>
+  <button md-raised-button (click)="dialogRef.close('CANCEL')">CANCEL</button>
+</div>
